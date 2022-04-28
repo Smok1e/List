@@ -1,0 +1,33 @@
+digraph G
+{
+    dpi      = 200;
+    ordering = in;
+    rankdir  = LR;
+    
+    node [shape = record, style = filled, fontname = consolas];
+    
+    "elem0" [label = "{ <index> index: 0 | <logical> logical: 0 } | { data: 0x00000003 } | { <prev> prev: -2 [END] | <next> next: 1 }", fillcolor = "#9ED7FFFF"];
+    "elem1" [label = "{ <index> index: 1 | <logical> logical: 1 } | { data: 0x00000005 } | { <prev> prev: 0 | <next> next: 2 }", fillcolor = "#9ED7FFFF"];
+    "elem2" [label = "{ <index> index: 2 | <logical> logical: 2 } | { data: 0x00000001 } | { <prev> prev: 1 | <next> next: 3 }", fillcolor = "#9ED7FFFF"];
+    "elem3" [label = "{ <index> index: 3 | <logical> logical: 3 } | { data: 0x00000004 } | { <prev> prev: 2 | <next> next: -2 [END] }", fillcolor = "#9ED7FFFF"];
+    "elem4" [label = "{ <index> index: 4 | <logical> logical: free } | { data: 0x00000000 } | { <prev> prev: -1 | <next> next: 5 }", fillcolor = "#D0FFD0FF"];
+    "elem5" [label = "{ <index> index: 5 | <logical> logical: free } | { data: 0x00000000 } | { <prev> prev: -1 | <next> next: 6 }", fillcolor = "#D0FFD0FF"];
+    "elem6" [label = "{ <index> index: 6 | <logical> logical: free } | { data: 0x00000000 } | { <prev> prev: -1 | <next> next: 7 }", fillcolor = "#D0FFD0FF"];
+    "elem7" [label = "{ <index> index: 7 | <logical> logical: free } | { data: 0x00000000 } | { <prev> prev: -1 | <next> next: -2 [END] }", fillcolor = "#D0FFD0FF"];
+    
+    "elem0" -> "elem1" [style = invis, weight = 10, penwidth = 3];
+    "elem1" -> "elem2" [style = invis, weight = 10, penwidth = 3];
+    "elem2" -> "elem3" [style = invis, weight = 10, penwidth = 3];
+    "elem3" -> "elem4" [style = invis, weight = 10, penwidth = 3];
+    "elem4" -> "elem5" [style = invis, weight = 10, penwidth = 3];
+    "elem5" -> "elem6" [style = invis, weight = 10, penwidth = 3];
+    "elem6" -> "elem7" [style = invis, weight = 10, penwidth = 3];
+    
+    "elem0":<next> -> "elem1":<index>;
+    "elem1":<next> -> "elem2":<index>;
+    "elem2":<next> -> "elem3":<index>;
+    
+    "elem4":<next> -> "elem5":<index>;
+    "elem5":<next> -> "elem6":<index>;
+    "elem6":<next> -> "elem7":<index>;
+}
